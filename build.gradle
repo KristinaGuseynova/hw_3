@@ -1,5 +1,5 @@
 plugins {
-    id 'java-library'
+    id 'java'
 }
 
 repositories {
@@ -8,6 +8,11 @@ repositories {
 
 dependencies {
     testImplementation(
+            "org.junit.jupiter:junit-jupiter:5.10.3",
             "com.codeborne:selenide:7.4.3"
     )
+}
+
+test {
+    useJUnitPlatform()
 }
