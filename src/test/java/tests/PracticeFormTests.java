@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -34,7 +33,7 @@ public class PracticeFormTests {
         $("div.react-datepicker__day.react-datepicker__day--010").click();
         $("#subjectsInput").setValue("eng").pressEnter();
         $(byText("Reading")).scrollTo().click();
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\bitte\\OneDrive\\Рабочий стол\\мульти пульти\\1.png"));
+        $("#uploadPicture").uploadFromClasspath("1.png");
         $("#currentAddress").setValue("221B Baker Street");
         $("#state").click();
         $("#react-select-3-option-2").click();
@@ -53,11 +52,6 @@ public class PracticeFormTests {
         $(".table-responsive").shouldHave(text("221B Baker Street"));
         $(".table-responsive").shouldHave(text("Haryana Panipat"));
 
-        try {
-            sleep(10000);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
 }
