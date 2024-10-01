@@ -15,20 +15,20 @@ public class RegistrationPage {
     private final SelenideElement firstNameInput = $("#firstName"),
                             lastNameInput = $("#lastName"),
                             userEmailInput = $("#userEmail"),
+                            genderWrapper = $("#genterWrapper"),
                             userNumberInput = $("#userNumber"),
-                            genderWrapper = $("#gender"),
                             calendarInput = $("#dateOfBirthInput"),
                             subjectsInput = $("#subjectsInput"),
-                            chooseHobby = $("reading"),
-                            uploadPicture = $("picture"),
-                            currentAddressInput = $("currentAddress"),
-                            stateModal = $("state"),
-                            cityModal = $("city"),
-                            pressSubmit = $("submit");
+                            hobbiesWrapper = $("#hobbiesWrapper"),
+                            uploadPicture = $("#uploadPicture"),
+                            currentAddressInput = $("#currentAddress"),
+                            stateModal = $("#react-select-3-input"),
+                            cityModal = $("#react-select-4-input"),
+                            pressSubmit = $("#submit");
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    TableResults checkTableResults = new TableResults();
+    TableResults tableResults = new TableResults();
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -68,7 +68,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setHobby(String value) {
-        chooseHobby.$(byText(value)).scrollTo().click();
+        hobbiesWrapper.$(byText(value)).click();
         return this;
     }
     public RegistrationPage setPicture(String value) {
@@ -88,16 +88,17 @@ public class RegistrationPage {
         return this;
     }
 
+    public void pressSubmit() {
+        pressSubmit.click();
+    }
 
     public RegistrationPage checkResult(String key, String value) {
-        checkTableResults.checkTableResults(key, value);
+        tableResults.checkTableResults(key, value);
         return this;
     }
 
 
-    public void pressSubmit() {
-        pressSubmit.click();
-    }
+
 
 
 

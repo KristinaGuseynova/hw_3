@@ -13,11 +13,11 @@ public class PracticeFormPageObjectsTests extends TestBase {
     @Test
     void fillFormTest() {
         registrationPage.openPage()
-                        .setFirstName("Mr")
+                        .setFirstName("Mrs")
                         .setLastName("Smith")
                         .setEmail("test@test.xyz")
-                        .setUserNumber("79991112233")
                         .setGender("Female")
+                        .setUserNumber("9991112233")
                         .setDateOfBirth("01", "April", "2000")
                         .setSubjects("eng")
                         .setHobby("Reading")
@@ -28,11 +28,11 @@ public class PracticeFormPageObjectsTests extends TestBase {
                         .pressSubmit();
 
 
-        registrationPage.checkResult("Student Name", "Mr Smith")
+        registrationPage.checkResult("Student Name", "Mrs Smith")
                         .checkResult("Student Email", "test@test.xyz")
                         .checkResult("Gender", "Female")
-                        .checkResult("Mobile", "79991112233")
-                        .checkResult("Date of Birth", "01 April 2000")
+                        .checkResult("Mobile", "9991112233")
+                        .checkResult("Date of Birth", "01 April,2000")
                         .checkResult("Subjects", "English")
                         .checkResult("Hobbies", "Reading")
                         .checkResult("Picture", "1.png")
