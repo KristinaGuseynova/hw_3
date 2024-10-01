@@ -41,4 +41,19 @@ public class PracticeFormPageObjectsTests extends TestBase {
 
     }
 
+
+    @Test
+    void minimumDataTest() {
+        registrationPage.openPage()
+                .setFirstName("Mrs")
+                .setLastName("Smith")
+                .setGender("Female")
+                .setUserNumber("9991112233")
+                .pressSubmit();
+
+        registrationPage.checkResult("Student Name", "Mrs Smith")
+                .checkResult("Gender", "Female")
+                .checkResult("Mobile", "9991112233");
+    }
+
 }
