@@ -56,4 +56,14 @@ public class PracticeFormPageObjectsTests extends TestBase {
                 .checkResult("Mobile", "9991112233");
     }
 
+
+    @Test
+    void NegativeTest() {
+        registrationPage.openPage()
+                .pressSubmit();
+
+        registrationPage.checkNoResult();
+    }
+
+
 }
